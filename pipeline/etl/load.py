@@ -21,7 +21,18 @@ def _get_or_create_row_id(cur, table, value):
     return cur.fetchone()[0]
 
 def _insert_adverse_event(cur, event):
-    return None
+    sql = """
+        INSERT INTO adverse_events (saftey_report_id, receive_date, serious, seriousness_death, seriousness_hospitalization)
+        VALUES (%s, %s, %s, %s, %s)
+        ON CONFLICT (safety_report_id) DO NOTHING
+    """
+    cur.execute(sql, (
+        event["safetyreportid"],
+        event["receivedate"],
+        event["serious"],
+        event["seriousnessdeath"],
+        event["seriousnesshospitalization"],
+    ))
 
 def _link_event_to_dimensions(cur, event):
     return None
