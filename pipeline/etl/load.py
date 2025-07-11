@@ -44,7 +44,7 @@ def _link_event_to_dimensions(cur, safety_report_id, drugs, reactions):
         ON CONFLICT DO NOTHING
     """
     EVENT_REACTIONS_SQL = """
-        INSERT INTO event_reactions(safety_report_id, reaction_id)
+        INSERT INTO event_reaction(safety_report_id, reaction_id)
         VALUES (%s, %s)
         ON CONFLICT DO NOTHING
     """
