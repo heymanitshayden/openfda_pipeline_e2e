@@ -1,5 +1,8 @@
 pandas
 sqlalchemy
-psycopg2-binary
+psycopg2
 tqdm
 requests
+python-dotenv
+ipython
+streamlit
